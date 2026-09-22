@@ -41,7 +41,7 @@ Item { // Bar content region
             fill: parent
             margins: Config.options.bar.cornerStyle === 1 ? (Appearance.sizes.hyprlandGapsOut) : 0 // idk why but +1 is needed
         }
-        color: Config.options.bar.showBackground ? Appearance.colors.colLayer0 : "transparent"
+        color: Config.options.bar.showBackground ? Appearance.colors.colLayer0Base : "transparent"
         radius: Config.options.bar.cornerStyle === 1 ? Appearance.rounding.windowRounding : 0
         border.width: Config.options.bar.cornerStyle === 1 ? 1 : 0
         border.color: Appearance.colors.colLayer0Border
@@ -109,17 +109,23 @@ Item { // Bar content region
         spacing: 4
 
         BarGroup {
-            id: leftCenterGroup
+            id: resourcesGroup
             anchors.verticalCenter: parent.verticalCenter
-            implicitWidth: root.centerSideModuleWidth
+            forcedWidth: root.useShortenedForm === 2 ? root.centerSideModuleWidth : -1
 
             Resources {
                 alwaysShowAllResources: root.useShortenedForm === 2
                 Layout.fillWidth: root.useShortenedForm === 2
             }
+        }
+
+        BarGroup {
+            id: mediaGroup
+            visible: root.useShortenedForm < 2
+            anchors.verticalCenter: parent.verticalCenter
+            implicitWidth: root.centerSideModuleWidth / 2
 
             Media {
-                visible: root.useShortenedForm < 2
                 Layout.fillWidth: true
             }
         }

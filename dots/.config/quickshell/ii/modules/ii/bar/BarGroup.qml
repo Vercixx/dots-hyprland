@@ -6,7 +6,8 @@ Item {
     id: root
     property bool vertical: false
     property real padding: 5
-    implicitWidth: vertical ? Appearance.sizes.baseVerticalBarWidth : (gridLayout.implicitWidth + padding * 2)
+    property real forcedWidth: -1
+    implicitWidth: vertical ? Appearance.sizes.baseVerticalBarWidth : (forcedWidth >= 0 ? forcedWidth : gridLayout.implicitWidth + padding * 2)
     implicitHeight: vertical ? (gridLayout.implicitHeight + padding * 2) : Appearance.sizes.baseBarHeight
     default property alias items: gridLayout.children
 
