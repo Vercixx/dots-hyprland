@@ -38,7 +38,7 @@
 This is pretty much the same as original dotfiles. Run this in your terminal:
 ```
 mkdir -p ~/.cache/illogical-impulse
-git clone https://github.com/Vercixx/illogical-impulse.git ~/.cache/illogical-impulse
+git clone --recursive-submodules https://github.com/Vercixx/illogical-impulse.git ~/.cache/illogical-impulse
 cd ~/.cache/illogical-impulse
 ./setup install
 ```
