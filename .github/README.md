@@ -2,7 +2,7 @@
 
 ## <img src="assets/illogical-impulse.svg" alt="illogical-impulse logo" style="float:left; width:400;">
 
-**Fork of [end-4's](https://github.com/end-4/dots-hyprland) usability-first dotfiles**
+**Opinionated fork of [end-4's](https://github.com/end-4/dots-hyprland) usability-first dotfiles**
 </div>
 
 ---
