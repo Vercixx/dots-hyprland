@@ -82,19 +82,32 @@ Item { // Bar content region
             anchors.fill: parent
             spacing: 0
 
-            LeftSidebarButton { // Left sidebar button
-                id: leftSidebarButton
+            BarGroup {
                 Layout.alignment: Qt.AlignVCenter
                 Layout.leftMargin: Appearance.rounding.screenRounding
-                colBackground: barLeftSideMouseArea.hovered ? Appearance.colors.colLayer1Hover : ColorUtils.transparentize(Appearance.colors.colLayer1Hover, 1)
+
+                LeftSidebarButton { // Left sidebar button
+                    id: leftSidebarButton
+                    Layout.alignment: Qt.AlignVCenter
+                    colBackground: barLeftSideMouseArea.hovered ? Appearance.colors.colLayer1Hover : ColorUtils.transparentize(Appearance.colors.colLayer1Hover, 1)
+                }
             }
 
-            ActiveWindow {
-                Layout.leftMargin: 10 + (leftSidebarButton.visible ? 0 : Appearance.rounding.screenRounding)
-                Layout.rightMargin: Appearance.rounding.screenRounding
+            BarGroup {
+                visible: root.useShortenedForm === 0
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 5
+
+                ActiveWindow {
+                    Layout.leftMargin: 5
+                    Layout.rightMargin: 5
+                    Layout.fillHeight: true
+                }
+            }
+
+            Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                visible: root.useShortenedForm === 0
             }
         }
     }
@@ -230,11 +243,14 @@ Item { // Bar content region
             spacing: 5
             layoutDirection: Qt.RightToLeft
 
+            BarGroup {
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: Appearance.rounding.screenRounding
+
             RippleButton { // Right sidebar button
                 id: rightSidebarButton
 
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                Layout.rightMargin: Appearance.rounding.screenRounding
+                Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: false
 
                 implicitWidth: indicatorsRowLayout.implicitWidth + 10 * 2
@@ -323,11 +339,18 @@ Item { // Bar content region
                 }
             }
 
-            SysTray {
+            }
+
+            BarGroup {
                 visible: root.useShortenedForm === 0
-                Layout.fillWidth: false
-                Layout.fillHeight: true
-                invertSide: Config?.options.bar.bottom
+                Layout.alignment: Qt.AlignVCenter
+
+                SysTray {
+                    showSeparator: false
+                    Layout.fillWidth: false
+                    Layout.fillHeight: true
+                    invertSide: Config?.options.bar.bottom
+                }
             }
 
             Item {
