@@ -211,7 +211,7 @@ hl.animation({
     leaf = "layersIn",
     enabled = true,
     speed = 2.7,
-    spring = "responsiveSpring",
+    bezier = "emphasizedDecel",
     style = "popin 93%"
 })
 hl.animation({
