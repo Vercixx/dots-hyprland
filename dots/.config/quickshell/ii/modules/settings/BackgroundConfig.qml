@@ -228,6 +228,15 @@ ContentPage {
                 }
             }
 
+            ConfigColorPicker {
+                Layout.fillWidth: true
+                text: Translation.tr("Color")
+                value: Config.options.background.widgets.clock.digital.color
+                onPicked: color => {
+                    Config.options.background.widgets.clock.digital.color = color;
+                }
+            }
+
             ConfigSlider {
                 text: Translation.tr("Font weight")
                 value: Config.options.background.widgets.clock.digital.font.weight

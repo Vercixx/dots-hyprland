@@ -757,5 +757,8 @@
   "Fr": "Пт/*keep*/",
   "Font family name": "Назв. семейства",
   "Pin": "Закреп",
-  "Unpin": "Откреп"
+  "Unpin": "Откреп",
+  "Color": "Цвет",
+  "Default": "По умолчанию",
+  "Hex color, e.g. #ffffff": "HEX-цвет, например #ffffff"
 }
